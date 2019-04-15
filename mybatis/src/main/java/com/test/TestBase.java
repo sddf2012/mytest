@@ -19,21 +19,19 @@ public class TestBase {
         SqlSessionFactory sqlSessionFactory = SqlSessionUtils.getSessionFactory();
         SqlSession sqlSession = sqlSessionFactory.openSession();
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        User user = new User("3", "3", "1");
-        User user2 = new User("4", "4", "1");
-        List<User> list = new ArrayList<>();
-        list.add(user);
-        list.add(user2);
+
+        //List<User> list = userMapper.findByName("张");
+
         //userMapper.save(user);
         //userMapper.multipleSave(list);
-        User result = userMapper.getById("3");
-        /*List resultList = userMapper.findByName("1");
+        //User result = userMapper.getById("3");
+        List resultList = userMapper.findByName("张三");
+        sqlSession.commit();
+
         resultList.forEach(
                 l -> {
                     System.out.println(l.toString());
                 }
-        );*/
-        sqlSession.commit();
-         System.out.println(result.toString());
+        );
     }
 }

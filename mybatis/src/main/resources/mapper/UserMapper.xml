@@ -3,26 +3,47 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mapper.UserMapper">
-    <resultMap id="userRs" type="user" autoMapping="false">
+    <resultMap id="baseMap" type="user" autoMapping="false">
         <constructor>
-            <idArg column="id" javaType="string"/>
+            <idArg column="id" javaType="long"/>
         </constructor>
         <id property="id" column="id"/>
+        <result property="code" column="code"/>
+        <result property="name" column="name"/>
+        <result property="pwd" column="pwd"/>
     </resultMap>
-    <select id="getById" resultMap="userRs">
-    select * from t_user where id = #{id}
+
+    <resultMap id="mapExt1" type="user" extends="baseMap">
+       <association property="address" javaType="address" autoMapping="true">
+           <id property="id" column="id"/>
+           <result property="userId" column="user_id"/>
+       </association>
+        <collection property="hobbys" ofType="hobby" autoMapping="false">
+            <id property="id" column="hid"/>
+            <result property="userId" column="user_id"/>
+            <result property="code" column="hcode"/>
+            <result property="name" column="hname"/>
+        </collection>
+    </resultMap>
+
+
+    <select id="getById" resultMap="baseMap">
+    select * from user where id = #{id}
     </select>
     <insert id="save">
-        insert into t_user values (#{id},#{code},#{name})
+        insert into user values (#{id},#{code},#{name})
     </insert>
     <insert id="multipleSave">
-       insert into t_user values
+       insert into user values
        <foreach collection="list" item="item" separator=",">
            (#{item.id},#{item.code},#{item.name})
        </foreach>
     </insert>
-    <select id="findByName" resultType="user">
-        select * from t_user where name like #{name}
+
+    <select id="findByName" resultMap="mapExt1">
+        select t.*,a.*,h.id hid ,h.user_id user_id ,h.code hcode ,h.name hname from user t left join hobby h on t.id=h.user_id
+         left join address a on t.id=a.user_id
+         where t.name like #{name}
     </select>
 
 </mapper>

@@ -1,3 +1,7 @@
+out
+/out/
+build
+/build/
 target
 /target/
 !.mvn/wrapper/maven-wrapper.jar

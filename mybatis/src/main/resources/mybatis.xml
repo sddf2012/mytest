@@ -24,6 +24,8 @@
     </environments>
 
     <mappers>
-        <mapper resource="mapper/*Mapper.xml"/>
+        <mapper resource="mapper/UserMapper.xml"/>
+        <mapper resource="mapper/AddressMapper.xml"/>
+        <mapper resource="mapper/HobbyMapper.xml"/>
     </mappers>
 </configuration>
