@@ -1,0 +1,4 @@
+
+dependencies {
+    compile 'org.elasticsearch.client:transport:6.3.2'
+}

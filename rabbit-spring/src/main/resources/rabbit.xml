@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/rabbit
+       http://www.springframework.org/schema/rabbit/spring-rabbit.xsd
+         http://www.springframework.org/schema/context
+                http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:component-scan base-package="com"/>
+
+    <!-- 连接服务配置  -->
+    <rabbit:connection-factory id="connectionFactory" host="localhost" port="5672" publisher-confirms="true" publisher-returns="true"/>
+    <rabbit:admin id="rabbitAdmin" connection-factory="connectionFactory"/>
+    <rabbit:template id="rabbitTemplate" connection-factory="connectionFactory" message-converter="messageConverter"
+                     mandatory="true" confirm-callback="myConfirmCallBack" return-callback="myReturnCallBack"/>
+    <bean id="messageConverter" class="org.springframework.amqp.support.converter.Jackson2JsonMessageConverter"/>
+
+    <rabbit:queue name="q1"/>
+    <rabbit:queue name="q2"/>
+
+    <rabbit:direct-exchange name="direct1">
+        <rabbit:bindings>
+            <rabbit:binding queue="q1" key="1"/>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+
+    <rabbit:direct-exchange name="direct2">
+        <rabbit:bindings>
+            <rabbit:binding queue="q2" key="2"/>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+
+    <rabbit:listener-container connection-factory="connectionFactory" acknowledge="manual" concurrency="1" max-concurrency="1">
+        <rabbit:listener ref="myListener1" queues="q1"/>
+        <rabbit:listener ref="myListener2" queues="q1"/>
+    </rabbit:listener-container>
+</beans>

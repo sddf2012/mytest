@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.UserMapper">
+    <resultMap id="userRs" type="user" autoMapping="true">
+        <constructor>
+            <idArg column="id" javaType="string"/>
+        </constructor>
+        <id property="id" column="id"/>
+    </resultMap>
+    <select id="getById" resultMap="userRs">
+    select * from t_user where id = #{id}
+    </select>
+    <insert id="save">
+        insert into t_user values (#{id},#{code},#{name})
+    </insert>
+    <insert id="multipleSave">
+       insert into t_user values
+       <foreach collection="list" item="item" separator=",">
+           (#{item.id},#{item.code},#{item.name})
+       </foreach>
+    </insert>
+    <select id="findByName" resultType="user">
+        select * from t_user where name like #{name}
+    </select>
+    <select id="findByName2" resultType="user">
+        select * from t_user where name like #{name}
+    </select>
+
+</mapper>

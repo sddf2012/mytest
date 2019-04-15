@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.TestMapper">
+    <resultMap id="testMap" type="test" autoMapping="true">
+        <id property="id" column="id"/>
+    </resultMap>
+    <update id="updateAIncr">
+        update test set a=a+1 where id=#{id}
+    </update>
+
+    <update id="updateA">
+        update test set a=#{a} where id=#{id}
+    </update>
+
+    <update id="updateAVersion">
+        update test set a=#{newValue} where id=#{id} and a=#{oldValue}
+    </update>
+
+    <select id="selectAForUpdate" resultType="test">
+    select * from test where id = #{id} for update
+    </select>
+
+    <select id="selectA" resultType="test">
+    select * from test where id = #{id}
+    </select>
+
+</mapper>

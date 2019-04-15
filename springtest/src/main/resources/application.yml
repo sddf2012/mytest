@@ -1,0 +1,8 @@
+ehcache:
+  location: classpath:ehcahce.xml
+myCache:
+  redis:
+     host: localhost
+     port: 6379
+test:
+  name: 123

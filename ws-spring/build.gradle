@@ -1,0 +1,5 @@
+dependencies {
+    compile group: 'org.apache.cxf', name: 'cxf-rt-frontend-jaxws', version: '3.2.6'
+    compile group: 'org.apache.cxf', name: 'cxf-rt-transports-http', version: '3.2.6'
+    compile group: 'org.apache.cxf', name: 'cxf-rt-transports-http-jetty', version: '3.2.6'
+}
