@@ -1,4 +1,4 @@
-package com.factorybean;
+package com.sourcecode.anno;
 
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.InitializingBean;
@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
  * @author liu peng bo
  * @date 2018/5/8
  */
-@Component
 public class MyFactoryBean implements FactoryBean<Person>,InitializingBean{
     @Nullable
     @Override

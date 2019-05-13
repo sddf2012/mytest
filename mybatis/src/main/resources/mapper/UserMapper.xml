@@ -3,11 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mapper.UserMapper">
-    <resultMap id="baseMap" type="user" autoMapping="false">
-        <constructor>
+    <resultMap id="baseMap" type="user">
+        <constructor >
             <idArg column="id" javaType="long"/>
         </constructor>
-        <id property="id" column="id"/>
+        <id property="userId" column="id"/>
         <result property="code" column="code"/>
         <result property="name" column="name"/>
         <result property="pwd" column="pwd"/>
@@ -26,10 +26,24 @@
         </collection>
     </resultMap>
 
+    <resultMap id="mapExt2" type="user" extends="baseMap">
+        <association property="address" javaType="address" select="com.mapper.AddressMapper.selectByUserId" column="{user_id=id}">
+        </association>
+        <collection property="hobbys" ofType="hobby" resultMap="userhobbyMap">
+        </collection>
+    </resultMap>
+
+    <resultMap id="userhobbyMap" type="hobby">
+        <id property="hobbyId" column="hobbyId"/>
+        <result property="hobbyUserId" column="hobbyUserId"/>
+        <result property="hobbyCode" column="hobbyCode"/>
+        <result property="hobbyName" column="hobbyName"/>
+    </resultMap>
 
     <select id="getById" resultMap="baseMap">
     select * from user where id = #{id}
     </select>
+
     <insert id="save">
         insert into user values (#{id},#{code},#{name})
     </insert>
@@ -44,6 +58,10 @@
         select t.*,a.*,h.id hid ,h.user_id user_id ,h.code hcode ,h.name hname from user t left join hobby h on t.id=h.user_id
          left join address a on t.id=a.user_id
          where t.name like #{name}
+    </select>
+
+    <select id="findAll" resultMap="mapExt2">
+        select t.*,h.id hobbyId,h.user_id hobbyUserId,h.code hobbyCode,h.name hobbyName from user t left join hobby h on t.id=h.user_id
     </select>
 
 </mapper>

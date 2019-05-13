@@ -23,7 +23,5 @@
     <select id="insert" parameterType="address">
     insert into address(user_id,contry,province,city,detail)values(#{addressUserId},#{addressCountry},#{addressProvince},#{addressCity},#{addressDetail})
     </select>
-    <cache-ref namespace="com.mapper.HobbyMapper"/>
-
 
 </mapper>

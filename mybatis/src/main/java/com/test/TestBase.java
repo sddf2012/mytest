@@ -25,7 +25,9 @@ public class TestBase {
         //userMapper.save(user);
         //userMapper.multipleSave(list);
         //User result = userMapper.getById("3");
-        List resultList = userMapper.findByName("张三");
+        List resultList ;
+        //resultList= userMapper.findByName("张三");
+        resultList= userMapper.findAll();
         sqlSession.commit();
 
         resultList.forEach(

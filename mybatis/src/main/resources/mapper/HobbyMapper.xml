@@ -4,12 +4,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mapper.HobbyMapper">
     <resultMap id="hobbyMap" type="hobby" autoMapping="true">
-        <id property="id" column="id"/>
-        <result property="userId" column="user_id"/>
+        <id property="hobbyId" column="id"/>
+        <result property="hobbyUserId" column="user_id"/>
+        <result property="hobbyCode" column="code"/>
+        <result property="hobbyName" column="name"/>
     </resultMap>
 
-    <select id="selectByUserId" resultType="hobby">
+    <select id="selectByUserId" resultMap="hobbyMap">
     select * from hobby where user_id = #{userId}
     </select>
+    <cache/>
 
 </mapper>

@@ -1,4 +1,4 @@
-package com.factorybean;
+package com.sourcecode.anno;
 
 /**
  * @author liu peng bo

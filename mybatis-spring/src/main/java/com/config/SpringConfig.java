@@ -34,7 +34,7 @@ public class SpringConfig {
         Map<Object, Object> map = new HashMap<>();
         DruidDataSource dataSource1 = new DruidDataSource();
         dataSource1.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource1.setUrl("jdbc:mysql://localhost:3306/my?serverTimezone=GMT%2B8");
+        dataSource1.setUrl("jdbc:mysql://localhost:3306/test?serverTimezone=GMT%2B8");
         dataSource1.setUsername("root");
         dataSource1.setPassword("root");
 

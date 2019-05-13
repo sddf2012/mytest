@@ -11,12 +11,12 @@ public class Address implements Serializable{
     public String city;
     public String street;
 
-    @Override
+    /*@Override
     public String toString() {
         return "Address{" +
                 "provice='" + provice + '\'' +
                 ", city='" + city + '\'' +
                 ", street='" + street + '\'' +
                 '}';
-    }
+    }*/
 }

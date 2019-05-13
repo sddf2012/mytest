@@ -6,7 +6,6 @@ package enum1;
  */
 public class Test {
     public static void main(String[] args) {
-        System.out.println(TestEnum.a);
-        ;
+        System.out.println(TestEnum.valueOf("a"));
     }
 }

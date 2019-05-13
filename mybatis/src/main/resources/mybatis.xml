@@ -5,9 +5,16 @@
 <configuration>
     <properties resource="dbConfig.properties"/>
 
+    <settings>
+        <setting name="cacheEnabled" value="true"/>
+        <setting name="lazyLoadingEnabled" value="true"/>
+    </settings>
+
     <typeAliases>
         <package name="com.entity"/>
     </typeAliases>
+
+
 
     <environments default="development">
 
@@ -27,5 +34,6 @@
         <mapper resource="mapper/UserMapper.xml"/>
         <mapper resource="mapper/AddressMapper.xml"/>
         <mapper resource="mapper/HobbyMapper.xml"/>
+
     </mappers>
 </configuration>

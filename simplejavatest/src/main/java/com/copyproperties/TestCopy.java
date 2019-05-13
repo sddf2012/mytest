@@ -151,7 +151,7 @@ public class TestCopy {
         list.add(source21);
         Source source = new Source("source", list);
         Dest dest = new Dest();
-        MyBeanUtils.myCopyProperties(source, dest);
+        //MyBeanUtils.myCopyProperties(source, dest);
         System.out.println("1");
     }
 }

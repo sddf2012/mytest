@@ -11,9 +11,9 @@ import java.util.List;
  */
 public class Test {
     public static void main(String[] args) {
-        List<Integer> list=new ArrayList<>();
+        /*List<Integer> list=new ArrayList<>();
         System.out.println(ClassUtils.isAssignable(List.class,list.getClass()));
         System.out.println(ClassUtils.isAssignable(List.class,Object.class));
-        System.out.println(ClassUtils.isAssignable(Object.class,List.class));
+        System.out.println(ClassUtils.isAssignable(Object.class,List.class));*/
     }
 }

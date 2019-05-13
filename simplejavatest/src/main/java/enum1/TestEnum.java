@@ -6,11 +6,14 @@ package enum1;
  */
 public enum  TestEnum {
 
-    a(1);
+    a(1,11),
+    b(2,22);
 
     private int i;
-    TestEnum(int i) {
+    private int j;
+    TestEnum(int i,int j) {
         this.i = i;
+        this.j=j;
     }
 
 }

@@ -20,7 +20,7 @@ import java.util.List;
  * @date 2018/10/11
  */
 public class MyBeanUtils extends BeanUtils {
-    public static void myCopyProperties(Object source, Object target, String... ignoreProperties) throws BeansException {
+    /*public static void myCopyProperties(Object source, Object target, String... ignoreProperties) throws BeansException {
         myCopyProperties(source, target, null, ignoreProperties);
     }
 
@@ -87,5 +87,5 @@ public class MyBeanUtils extends BeanUtils {
         }
 
 
-    }
+    }*/
 }

@@ -16,4 +16,7 @@ public interface UserMapper {
     void multipleSave(List<User> list);
 
     List<User> findByName(String name);
+
+    List<User> findAll();
+
 }

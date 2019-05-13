@@ -16,7 +16,7 @@ public class Employee implements Serializable{
 
     public void mailCheck() {
         System.out.println("Mailing a check to " + name
-                + "---" + address.toString());
+                + "---" /*+ address.toString()*/);
     }
 
 }
