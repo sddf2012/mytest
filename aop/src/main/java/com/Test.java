@@ -1,5 +1,6 @@
 package com;
 
+import com.service.PayService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -11,7 +12,7 @@ public class Test {
     public static void main(String[] args) {
         System.setProperty("sun.misc.ProxyGenerator.saveGeneratedFiles","true");
         ApplicationContext ac = new AnnotationConfigApplicationContext(Config.class);
-        TestService testService = ac.getBean(TestService.class);
-        testService.test();
+        PayService payService =(PayService)ac.getBean("payService2");
+        payService.pay();
     }
 }

@@ -19,4 +19,5 @@ public interface UserMapper {
 
     List<User> findAll();
 
+    List<User> findAll2();
 }

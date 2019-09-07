@@ -11,6 +11,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
@@ -40,7 +42,7 @@ public class SpringConfig {
 
         DruidDataSource dataSource2 = new DruidDataSource();
         dataSource2.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource2.setUrl("jdbc:mysql://localhost:3306/my2?serverTimezone=GMT%2B8");
+        dataSource2.setUrl("jdbc:mysql://localhost:3306/test2?serverTimezone=GMT%2B8");
         dataSource2.setUsername("root");
         dataSource2.setPassword("root");
 
@@ -55,6 +57,11 @@ public class SpringConfig {
         dataSource.setTargetDataSources(dataSourceMap);
         //dataSource.setDefaultTargetDataSource(dataSourceMap.get("d1"));
         return dataSource;
+    }
+
+    @Bean
+    public PlatformTransactionManager transactionManager(DataSource dataSource){
+        return new DataSourceTransactionManager(dataSource);
     }
 
 

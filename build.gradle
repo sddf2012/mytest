@@ -30,7 +30,7 @@ subprojects {
         testCompile group: 'junit', name: 'junit', version: '4.12'
 
 
-        def springVersion = "5.0.5.RELEASE"
+        def springVersion = "5.1.2.RELEASE"
         // Spring
         compile("org.springframework:spring-aop:$springVersion",
                 "org.springframework:spring-orm:$springVersion",

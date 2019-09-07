@@ -16,6 +16,10 @@
     select * from address where user_id = #{userId}
     </select>
 
+    <select id="selectByUserIdAndCountry" resultMap="addressMap">
+    select * from address where user_id = #{userId} and contry=#{country}
+    </select>
+
     <select id="selectMapByUserId" resultType="map">
     select * from address where user_id = #{userId}
     </select>
@@ -24,6 +28,15 @@
     insert into address(user_id,contry,province,city,detail)values(#{addressUserId},#{addressCountry},#{addressProvince},#{addressCity},#{addressDetail})
     </select>
     <cache-ref namespace="com.mapper.HobbyMapper"/>
+
+    <select id="selectByAddress" resultMap="addressMap">
+        select * from address
+        <if test="address!=null">
+            <if test="address.addressId!=null">
+            where id=#{address.addressId}
+            </if>
+        </if>
+    </select>
 
 
 </mapper>

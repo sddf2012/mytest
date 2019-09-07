@@ -1,4 +1,4 @@
-package com;
+package com.aspectj;
 
 import java.lang.annotation.*;
 

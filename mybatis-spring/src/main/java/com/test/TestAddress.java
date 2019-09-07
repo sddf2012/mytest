@@ -14,6 +14,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 public class TestAddress {
     public static void main(String[] args) {
+        System.setProperty("sun.misc.ProxyGenerator.saveGeneratedFiles","true");
         ApplicationContext ac=new AnnotationConfigApplicationContext(SpringConfig.class);
         AddressService addressService= ac.getBean(AddressService.class);
         Address address=new Address();

@@ -9,6 +9,9 @@ import java.util.List;
  */
 public class Test {
     public static void main(String[] args) {
+        byte a=(byte)1;
+        Byte b=1;
+        System.out.println(a==b);
         System.out.println(List.class.isAssignableFrom(ArrayList.class));
     }
 }

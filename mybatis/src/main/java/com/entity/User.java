@@ -13,9 +13,11 @@ public class User {
     private long userId;
     private String code;
     private String name;
+    private String country;
     private String pwd;
     private Address address;
     private List<Hobby> hobbys;
+    private List<String> hobbyNames;
 
     public User() {
     }

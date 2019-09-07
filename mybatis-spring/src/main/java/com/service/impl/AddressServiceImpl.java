@@ -6,6 +6,7 @@ import com.mapper.AddressMapper;
 import com.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 整个代码文件描述
@@ -19,7 +20,8 @@ public class AddressServiceImpl implements AddressService {
     private AddressMapper addressMapper;
 
     @Override
-    @DesignationDatasource("d1")
+    @DesignationDatasource("d2")
+    @Transactional(rollbackFor = Exception.class)
     public void insert(Address address) {
         addressMapper.insert(address);
         int i=1/0;

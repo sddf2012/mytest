@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!--<bean id="xmlBean" class="com.sourcecode.XmlBean">
     </bean>-->
-    <bean id="bean1" class="com.sourcecode.Bean1">
-        <property name="bean2" ref="bean2"/>
+    <!--<bean id="bean1" class="com.sourcecode.Bean1">
+    </bean>-->
+    <bean id="bean2" class="com.sourcecode.Bean2" init-method="initMethod" name="bean22,bean23,bean24">
     </bean>
-    <bean id="bean2" class="com.sourcecode.Bean2" init-method="initMethod">
+    <bean id="aop" class="com.sourcecode.TestAop">
     </bean>
+    <aop:config>
+        <aop:pointcut id="testPointCut" expression="execution(* com.sourcecode.Bean2.*(..))"></aop:pointcut>
+        <aop:aspect id="testAop" ref="aop">
+            <aop:before pointcut-ref="testPointCut" method="test"></aop:before>
+        </aop:aspect>
+    </aop:config>
     <!--<bean  class="com.sourcecode.MyBeanPostProcessor">
     </bean>-->
     <!--<bean id="springContext" class="com.sourcecode.SpringContext">

@@ -6,7 +6,7 @@ package math.weiyunsuan;
  */
 public class Test {
     public static void main(String[] args) {
-        int a=-1;
-        System.out.println(-8>>2);
+        long a=(11223423424531L<<22);
+        System.out.println(a);
     }
 }

@@ -14,12 +14,6 @@ public class Test {
         logger.info("123123123");
     }
     public static void main(String[] args) {
-        Log1 log1=new Log1();
-        /*try {
-            log1.t2();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }*/
-        log1.t3();
+
     }
 }

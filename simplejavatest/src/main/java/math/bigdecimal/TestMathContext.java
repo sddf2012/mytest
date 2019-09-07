@@ -10,6 +10,8 @@ public class TestMathContext {
     public static void main(String[] args) {
         BigDecimal a=new BigDecimal("3.5");
         BigDecimal b=new BigDecimal("3.50");
+        BigDecimal d=null;
+        System.out.println(a.add(d));
         System.out.println(a.compareTo(b));
         /*BigDecimal b1=new BigDecimal("2.765");
         BigDecimal b2=new BigDecimal("2");

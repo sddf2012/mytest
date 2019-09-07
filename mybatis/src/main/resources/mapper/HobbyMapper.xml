@@ -13,6 +13,26 @@
     <select id="selectByUserId" resultMap="hobbyMap">
     select * from hobby where user_id = #{userId}
     </select>
+
+    <insert id="batchInsert" parameterType="list">
+        insert into hobby(user_id,code,name) values
+        <foreach collection="hobbies" item="item" separator=",">
+            (#{item.hobbyUserId},#{item.hobbyCode},#{item.hobbyName})
+        </foreach>
+    </insert>
+
+    <resultMap id="hobbyVo2" type="com.entity.HobbyVo2">
+        <id property="userId" column="user_id"/>
+        <result property="field" column="field"/>
+        <collection property="hobbyCodes" ofType="string">
+          <result property="code" column="code"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectHobbyVo2" resultMap="hobbyVo2">
+    select * from hobby
+    </select>
+
     <cache/>
 
 </mapper>

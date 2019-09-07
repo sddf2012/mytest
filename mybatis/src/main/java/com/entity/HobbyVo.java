@@ -1,20 +1,17 @@
 package com.entity;
 
 import lombok.Data;
-import lombok.ToString;
 
 /**
  * 整个代码文件描述
  *
- * @author 创建者中文名
- * date: 2019-1-10 16:43
+ * @author liu peng bo
+ * date: 2019/7/1 11:57
  */
 @Data
-@ToString
-public class Hobby {
+public class HobbyVo {
     private long hobbyId;
-    private long hobbyUserId;
+    private long userId;
     private String hobbyCode;
     private String hobbyName;
-
 }

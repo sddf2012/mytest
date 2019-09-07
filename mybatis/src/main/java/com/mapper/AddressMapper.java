@@ -3,6 +3,7 @@ package com.mapper;
 import com.entity.Address;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,5 +16,7 @@ public interface AddressMapper {
     Address selectByUserId(@Param("userId") long userId);
     Map<String,Object> selectMapByUserId(@Param("userId") long userId);
     void insert(Address address);
+
+    List<Address> selectByAddress(@Param("address") Address address);
 
 }

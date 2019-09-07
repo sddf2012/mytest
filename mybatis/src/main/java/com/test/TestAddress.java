@@ -7,6 +7,7 @@ import com.mapper.UserMapper;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,16 +22,26 @@ public class TestAddress {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         AddressMapper addressMapper = sqlSession.getMapper(AddressMapper.class);
         Address address=new Address();
-        address.setAddressUserId(3);
+        address.setAddressUserId(5);
         address.setAddressCountry("china");
-        address.setAddressCity("北京");
-        address.setAddressProvince("北京");
+        address.setAddressCity("qwqwq");
+        address.setAddressProvince("asdas");
         address.setAddressDetail("sdfsdfsdfdsfsdf");
         addressMapper.insert(address);
-        /*Address address= addressMapper.selectByUserId(1);
-        Map<String,Object> map= addressMapper.selectMapByUserId(1);*/
         sqlSession.commit();
-        System.out.println(address.toString());
+        /*Address address= addressMapper.selectByUserId(1);
+        Map<String,Object> map= addressMapper.selectMapByUserId(1);*//*
+        sqlSession.commit();
+        System.out.println(address.toString());*/
 
+
+        /*Address address = new Address();
+        address.setAddressId(11);
+        List<Address> addressList = addressMapper.selectByAddress(null);
+        //sqlSession.commit();
+        addressList.forEach(a ->
+                System.out.println(a.toString())
+
+        );*/
     }
 }
