@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  * @author liu peng bo
  * date: 2019/8/22 9:49
  */
-@Component
+//@Component
 public class PerformanceInterceptor extends DelegatingIntroductionInterceptor implements PerformanceMinor {
 
     ThreadLocal<Boolean> threadLocal = new ThreadLocal<Boolean>();
@@ -49,6 +49,5 @@ public class PerformanceInterceptor extends DelegatingIntroductionInterceptor im
         PayService payService = (PayService)ac.getBean("payService2");
         ((PerformanceMinor)payService).setOpen(true);
         payService.pay();
-        payService.callback();
     }
 }

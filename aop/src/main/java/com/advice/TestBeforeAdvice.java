@@ -12,11 +12,10 @@ import java.lang.reflect.Method;
  * @author liu peng bo
  * date: 2019/8/22 9:38
  */
-@Component
-public class PayBeforeAdvice implements MethodBeforeAdvice {
+//@Component
+public class TestBeforeAdvice implements MethodBeforeAdvice {
     @Override
     public void before(Method method, Object[] args, Object target) throws Throwable {
-        System.out.println("PayBeforeAdvice");
-        //method.invoke(target,args);
+        System.out.println("TestBeforeAdvice");
     }
 }

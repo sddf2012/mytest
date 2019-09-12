@@ -5,6 +5,7 @@ import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
@@ -19,11 +20,11 @@ import java.util.Date;
 @Aspect
 @Component
 public class AspectjAop {
-    @Pointcut("execution(* com.*Service.*(..))")
+    @Pointcut("execution(* com.*.*Service*.*(..))")
     public void pointcut() {
     }
 
-    @AfterReturning("pointcut()&&@annotation(testAnnotation)")
+    /*@AfterReturning("pointcut()&&@annotation(testAnnotation)")
     public void afterReturn(JoinPoint joinpoint, TestAnnotation testAnnotation) {
         System.out.println("after return:" + new Date());
     }
@@ -36,5 +37,10 @@ public class AspectjAop {
     @After("pointcut()&&@annotation(testAnnotation)")
     public void after(JoinPoint joinpoint, TestAnnotation testAnnotation) {
         System.out.println("after:" + new Date());
+    }*/
+
+    @Before("pointcut()&&@annotation(testAnnotation)")
+    public void before(JoinPoint joinpoint, TestAnnotation testAnnotation) {
+        System.out.println("aspectj before");
     }
 }

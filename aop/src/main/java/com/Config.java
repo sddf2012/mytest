@@ -1,7 +1,9 @@
 package com;
 
-import com.advice.PayBeforeAdvice;
+import com.advice.TestBeforeAdvice;
 import com.advice.introduction.PerformanceInterceptor;
+import com.service.CallbackService;
+import com.service.CallbackServiceImpl;
 import com.service.PayService;
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -9,7 +11,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.context.annotation.Primary;
 
 /**
  * @author liu peng bo
@@ -28,7 +29,7 @@ public class Config {
         return (PayService) proxyFactory.getProxy();
     }*/
 
-    @Bean
+    /*@Bean
     @Qualifier("payService2")
     public PayService payService2(PayService payService, PerformanceInterceptor performanceInterceptor) {
         ProxyFactory proxyFactory = new ProxyFactory();
@@ -36,5 +37,15 @@ public class Config {
         proxyFactory.addAdvice(performanceInterceptor);
         proxyFactory.setProxyTargetClass(true);
         return (PayService) proxyFactory.getProxy();
+    }*/
+
+    @Bean
+    public CallbackService payService2() {
+        CallbackService callbackService=new CallbackServiceImpl();
+        TestBeforeAdvice testBeforeAdvice=new TestBeforeAdvice();
+        ProxyFactory proxyFactory = new ProxyFactory();
+        proxyFactory.setTarget(callbackService);
+        proxyFactory.addAdvice(testBeforeAdvice);
+        return (CallbackService) proxyFactory.getProxy();
     }
 }

@@ -1,5 +1,6 @@
 package com;
 
+import com.service.CallbackService;
 import com.service.PayService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -12,7 +13,9 @@ public class Test {
     public static void main(String[] args) {
         System.setProperty("sun.misc.ProxyGenerator.saveGeneratedFiles","true");
         ApplicationContext ac = new AnnotationConfigApplicationContext(Config.class);
-        PayService payService =(PayService)ac.getBean("payService2");
-        payService.pay();
+        /*PayService payService =(PayService)ac.getBean("payService");
+        payService.pay();*/
+        CallbackService callbackService=ac.getBean(CallbackService.class);
+        callbackService.callback();
     }
 }
