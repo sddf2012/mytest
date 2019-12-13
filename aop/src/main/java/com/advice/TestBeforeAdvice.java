@@ -1,8 +1,6 @@
 package com.advice;
 
-import org.springframework.aop.BeforeAdvice;
 import org.springframework.aop.MethodBeforeAdvice;
-import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 
@@ -17,5 +15,6 @@ public class TestBeforeAdvice implements MethodBeforeAdvice {
     @Override
     public void before(Method method, Object[] args, Object target) throws Throwable {
         System.out.println("TestBeforeAdvice");
+        method.invoke(target, args);
     }
 }

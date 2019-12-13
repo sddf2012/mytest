@@ -16,4 +16,6 @@ dependencies {
 apply plugin: 'groovy'
 dependencies {
     compile files('../lib/ojdbc6-11.2.0.3.0.jar')
+    compile group: 'com.thoughtworks.xstream', name: 'xstream', version: '1.4.11.1'
+
 }
