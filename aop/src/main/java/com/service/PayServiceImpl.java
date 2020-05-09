@@ -1,6 +1,7 @@
 package com.service;
 
 import com.aspectj.TestAnnotation;
+import com.aspectj.TestAround;
 import com.domain.PayBo;
 import com.domain.PayVo;
 import org.springframework.stereotype.Component;
@@ -16,7 +17,8 @@ public class PayServiceImpl implements PayService {
     @Override
     @TestAnnotation
     public int pay() {
-        System.out.println("支付成功");
+        System.out.println("pay suceess");
+        int i=1/0;
         return 1;
     }
 
@@ -25,13 +27,14 @@ public class PayServiceImpl implements PayService {
         PayVo payVo = new PayVo();
         payVo.setOrderId(payBo.getOrderId());
         payVo.setTradeStatus("1");
-        System.out.println("订单支付中");
+        System.out.println("pay pending");
         return payVo;
     }
 
     @Override
-    public int cancel() {
-        System.out.println("取消成功");
-        return 0;
+    @TestAround
+    public int cancel(int id,PayBo payBo) {
+        System.out.println("cancel sucess");
+        return 123;
     }
 }

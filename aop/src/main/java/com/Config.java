@@ -39,7 +39,7 @@ public class Config {
         return (PayService) proxyFactory.getProxy();
     }*/
 
-    @Bean
+    /*@Bean
     public CallbackService payService2() {
         CallbackService callbackService=new CallbackServiceImpl();
         TestBeforeAdvice testBeforeAdvice=new TestBeforeAdvice();
@@ -47,5 +47,5 @@ public class Config {
         proxyFactory.setTarget(callbackService);
         proxyFactory.addAdvice(testBeforeAdvice);
         return (CallbackService) proxyFactory.getProxy();
-    }
+    }*/
 }

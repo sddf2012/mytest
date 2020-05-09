@@ -5,7 +5,19 @@ package enum1;
  * @date 2019/3/5
  */
 public class Test {
+    static  enum TestE{
+        Q{
+            @Override
+            public void test(){
+                System.out.println("qqq");
+            }
+        };
+
+     public abstract void test();
+    }
+
     public static void main(String[] args) {
-        System.out.println(TestEnum.valueOf("a"));
+        TestE testE=TestE.Q;
+        testE.test();
     }
 }

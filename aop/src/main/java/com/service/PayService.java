@@ -14,5 +14,5 @@ public interface PayService {
 
     PayVo pay(PayBo payBo);
 
-    int cancel();
+    int cancel(int id,PayBo payBo);
 }

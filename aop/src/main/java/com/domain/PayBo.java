@@ -17,4 +17,11 @@ public class PayBo {
 
     private BigDecimal bigDecimal;
 
+    public PayBo() {
+    }
+
+    public PayBo(Long orderId, BigDecimal bigDecimal) {
+        this.orderId = orderId;
+        this.bigDecimal = bigDecimal;
+    }
 }

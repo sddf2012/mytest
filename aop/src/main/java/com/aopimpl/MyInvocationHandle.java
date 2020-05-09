@@ -67,6 +67,6 @@ public class MyInvocationHandle implements InvocationHandler {
         PayService payService = new PayServiceImpl();
         PayService proxy = (PayService) Proxy.newProxyInstance(payService.getClass().getClassLoader(), payService.getClass().getInterfaces(), new MyInvocationHandle(payService));
         proxy.pay();
-        proxy.cancel();
+        //proxy.cancel();
     }
 }

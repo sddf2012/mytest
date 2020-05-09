@@ -14,4 +14,6 @@ include 'ehcache'
 include 'ehcache2.0'
 include 'redis'
 include 'rabbit-spring'
+include 'io'
+include 'reactor'
 
