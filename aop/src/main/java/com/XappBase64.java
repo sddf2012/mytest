@@ -18,12 +18,11 @@ public class XappBase64 {
     public static void main(String[] args) throws Exception {
         //payout
         Map<String, String> params =new HashMap<>();
-        params.put("event","TRANSFER_REVERSED");
-        params.put("transferId","11776f44c46c8001");
-        params.put("referenceId","110093");
-        params.put("eventTime","2020-05-08 09:47:55");
+        params.put("event","TRANSFER_SUCCESS");
+        params.put("transferId","119048c603611001");
+        params.put("referenceId","12345");
+        params.put("eventTime","2020-05-18 15:47:55");
         //params.put("acknowledged","1");
-
         String secret ="59e279e677e3d977bbf24bcbb34c01a55f5eeb88";
         String sign = params.get("signature");
         params.remove("signature");

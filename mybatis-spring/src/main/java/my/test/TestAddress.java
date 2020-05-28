@@ -1,4 +1,4 @@
-package com.test;
+package my.test;
 
 import com.config.SpringConfig;
 import com.entity.Address;

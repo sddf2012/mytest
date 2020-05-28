@@ -1,4 +1,4 @@
-package com.test;
+package my.test;
 
 import com.entity.Address;
 import com.init.SqlSessionUtils;
